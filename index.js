@@ -2,8 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
-// Cambiamos a 8080 para que coincida con el Dockerfile y App Runner
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 10000;
 
 const USER_SERVICE_URL = 'https://jsonplaceholder.typicode.com/users';
 const POSTS_SERVICE_URL = 'https://jsonplaceholder.typicode.com/posts';
@@ -27,7 +26,7 @@ app.get('/customer-dashboard/:id', async (req, res) => {
             },
             recentActivity: postsResponse.data.slice(0, 3),
             generatedAt: new Date().toISOString(),
-            source: "Cloud Gateway Aggregator en AWS"
+            source: "Cloud Gateway Aggregator en Azure"
         };
 
         res.json(dashboardData);
